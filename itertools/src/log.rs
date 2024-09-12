@@ -3,7 +3,7 @@
 use chrono::prelude::*;
 use regex::Regex;
 
-#[derive(Clone, Debug, PartialEq, Eq, Hash, Ord)]
+#[derive(Clone, Debug, PartialEq, Eq, Hash, Ord, PartialOrd)]
 pub struct ApacheLogEntry {
     client_ip: String,
     timestamp: DateTime<FixedOffset>,
@@ -12,11 +12,11 @@ pub struct ApacheLogEntry {
     size: u32,
 }
 
-impl PartialOrd for ApacheLogEntry {
-    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
-        self.timestamp.partial_cmp(&other.timestamp)
-    }
-}
+// impl PartialOrd for ApacheLogEntry {
+//     fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+//         self.timestamp.partial_cmp(&other.timestamp)
+//     }
+// }
 
 impl TryFrom<&str> for ApacheLogEntry {
     type Error = String;

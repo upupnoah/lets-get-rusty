@@ -51,6 +51,6 @@ fn main() {
     manager.unlock("master_password".to_string());
     manager.add_password("username".to_string(), "password".to_string());
     manager.get_password("username".to_string());
-    manager.list_passwords();
+    let _ = manager.list_passwords();
     manager.lock();
 }
